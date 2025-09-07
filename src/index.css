@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Business Consultancy Design System */
+
+@layer base {
+  :root {
+    /* Brand Colors - Premium Navy & Emerald Palette */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 17%;
+    
+    /* Premium Navy - Primary Brand */
+    --primary: 215 84% 15%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 215 50% 25%;
+    
+    /* Emerald Accent */
+    --accent: 158 64% 52%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 158 50% 65%;
+    
+    /* Sophisticated Neutrals */
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 215 25% 17%;
+    
+    --muted: 210 17% 96%;
+    --muted-foreground: 215 13% 55%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 17%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 17%;
+    
+    --border: 210 18% 87%;
+    --input: 210 18% 87%;
+    --ring: 215 84% 15%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215, 84%, 15%) 0%, hsl(215, 50%, 25%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(158, 64%, 52%) 0%, hsl(158, 50%, 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215, 84%, 15%) 0%, hsl(158, 64%, 52%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
+    
+    /* Professional Shadows */
+    --shadow-sm: 0 2px 4px -1px hsl(215, 25%, 17%, 0.1);
+    --shadow-md: 0 4px 12px -2px hsl(215, 25%, 17%, 0.15);
+    --shadow-lg: 0 8px 25px -5px hsl(215, 25%, 17%, 0.2);
+    --shadow-elegant: 0 10px 40px -10px hsl(215, 84%, 15%, 0.25);
+    --shadow-glow: 0 0 20px hsl(158, 64%, 52%, 0.3);
+    
+    /* Spacing & Layout */
+    --radius: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
+    
+    /* Professional Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 6%;
+    --foreground: 210 17% 95%;
+    
+    --primary: 158 64% 52%;
+    --primary-foreground: 215 28% 6%;
+    --primary-light: 158 50% 65%;
+    
+    --accent: 215 84% 75%;
+    --accent-foreground: 215 28% 6%;
+    --accent-light: 215 50% 85%;
+    
+    --secondary: 215 25% 12%;
+    --secondary-foreground: 210 17% 95%;
+    
+    --muted: 215 25% 10%;
+    --muted-foreground: 215 13% 65%;
+    
+    --card: 215 25% 8%;
+    --card-foreground: 210 17% 95%;
+    
+    --popover: 215 25% 8%;
+    --popover-foreground: 210 17% 95%;
+    
+    --border: 215 25% 18%;
+    --input: 215 25% 18%;
+    --ring: 158 64% 52%;
+    
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 210 17% 95%;
+    
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(215, 28%, 6%) 0%, hsl(215, 25%, 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(158, 64%, 52%) 0%, hsl(158, 50%, 65%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215, 28%, 8%) 0%, hsl(158, 64%, 52%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(215, 28%, 6%) 0%, hsl(215, 25%, 8%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Premium Button Variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-light text-primary-foreground 
+           px-8 py-3 rounded-lg font-semibold tracking-wide
+           shadow-md hover:shadow-elegant transform hover:scale-105
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-accent {
+    @apply bg-gradient-to-r from-accent to-accent-light text-accent-foreground
+           px-8 py-3 rounded-lg font-semibold tracking-wide
+           shadow-md hover:shadow-glow transform hover:scale-105
+           transition-all duration-300 ease-out;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary text-primary bg-transparent
+           px-8 py-3 rounded-lg font-semibold tracking-wide
+           hover:bg-primary hover:text-primary-foreground
+           transition-all duration-300 ease-out;
+  }
+  
+  /* Premium Cards */
+  .card-premium {
+    @apply bg-card rounded-xl p-6 shadow-md hover:shadow-lg
+           border border-border/50 backdrop-blur-sm
+           transform hover:scale-105 transition-all duration-300 ease-out;
+  }
+  
+  .card-service {
+    @apply bg-gradient-to-br from-card to-secondary/30 rounded-xl p-8
+           shadow-sm hover:shadow-elegant border border-border/30
+           transform hover:scale-105 hover:-translate-y-2
+           transition-all duration-500 ease-out;
+  }
+  
+  /* Section Containers */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Elegant Hover Effects */
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+  
+  .hover-lift {
+    @apply transform transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+  }
+}
