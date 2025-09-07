@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" width="140" height="32" aria-label="FinTech Pro Logo">
+  <rect width="180" height="40" fill="none"/>
+  <g fill="#0F172A">
+    <path d="M18 26l8-14 8 14h-3.4l-4.6-8-4.6 8H18z"/>
+    <path d="M44 16h9v3h-6v3h5.4v3H47v3h-3V16z"/>
+    <path d="M58 16h10v3h-7v9h-3V16z"/>
+    <path d="M72 16h3v2c.7-1.3 2.1-2.2 4-2.2 2.8 0 4.7 1.9 4.7 5V28h-3v-6.2c0-1.9-1-3-2.6-3s-3 1.2-3 3.3V28h-3V16z"/>
+  </g>
+</svg> 

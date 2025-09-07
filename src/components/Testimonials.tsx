@@ -63,6 +63,14 @@ const Testimonials = () => {
     setCurrentIndex(index);
   };
 
+  const clientLogos = [
+    { src: '/logos/logo-1.svg', alt: 'TechVision' },
+    { src: '/logos/logo-2.svg', alt: 'Manufacturing Co' },
+    { src: '/logos/logo-3.svg', alt: 'RetailChain' },
+    { src: '/logos/logo-4.svg', alt: 'FinTech Pro' },
+    { src: '/logos/logo-5.svg', alt: 'Service Group' },
+  ];
+
   return (
     <section className="py-20 lg:py-32 bg-background">
       <div className="section-container">
@@ -90,10 +98,10 @@ const Testimonials = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative max-w-4xl mx-auto"
+          className="relative max-w-4xl mx-auto px-12 sm:px-16"
         >
           {/* Main Testimonial */}
-          <div className="relative bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-8 lg:p-12 shadow-elegant border border-border/30 overflow-hidden">
+          <div className="relative bg-gradient-to-br from-card to-secondary/30 rounded-2xl p-8 lg:p-12 shadow-elegant border border-border/30 overflow-hidden min-h-[320px]">
             {/* Quote Icon */}
             <Quote className="absolute top-6 right-6 w-12 h-12 text-accent/20" />
             
@@ -141,16 +149,18 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-background border border-border rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-secondary/50 transition-all duration-300"
+            aria-label="Previous testimonial"
+            className="absolute left-0 sm:-left-4 lg:-left-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-background border border-border rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-secondary/50 transition-all duration-300"
           >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
           </button>
           
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-background border border-border rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-secondary/50 transition-all duration-300"
+            aria-label="Next testimonial"
+            className="absolute right-0 sm:-right-4 lg:-right-6 top-1/2 transform -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-background border border-border rounded-full flex items-center justify-center shadow-md hover:shadow-lg hover:bg-secondary/50 transition-all duration-300"
           >
-            <ChevronRight className="w-6 h-6 text-foreground" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground" />
           </button>
         </motion.div>
 
@@ -159,16 +169,17 @@ const Testimonials = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex justify-center space-x-2 mt-8"
+          className="flex justify-center gap-2 mt-8"
         >
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              aria-label={`Go to testimonial ${index + 1}`}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
                 index === currentIndex 
-                  ? 'bg-accent scale-125' 
-                  : 'bg-border hover:bg-accent/50'
+                  ? 'bg-accent w-6' 
+                  : 'bg-border hover:bg-accent/50 w-2.5'
               }`}
             />
           ))}
@@ -182,12 +193,15 @@ const Testimonials = () => {
           className="mt-20 text-center"
         >
           <p className="text-muted-foreground mb-8">Trusted by leading companies worldwide</p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center opacity-60">
-            {['TechVision', 'Manufacturing Co', 'RetailChain', 'FinTech Pro', 'Service Group'].map((company) => (
-              <div key={company} className="text-center">
-                <div className="w-24 h-12 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg flex items-center justify-center mx-auto">
-                  <span className="font-semibold text-muted-foreground text-sm">{company}</span>
-                </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-8 items-center opacity-80">
+            {clientLogos.map((logo) => (
+              <div key={logo.src} className="flex items-center justify-center">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-8 sm:h-9 md:h-10 lg:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
